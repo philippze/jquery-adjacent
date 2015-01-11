@@ -10,13 +10,13 @@
         var first = true;
         $(this).find(selector).each(function () {
             if (first) {
-                group = [$(this)];
+                group = $(this);
                 first = false;
             } else if (isAdjacent) {
-                group.push($(this));
+                group = group.add($(this));
             } else {
                 list.push(group);
-                group = [$(this)];
+                group = $(this);
             }
             isAdjacent = $(this).next().is(selector);
         });
